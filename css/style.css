@@ -317,6 +317,9 @@ footer a:hover{color:#7ba4ff;text-decoration:underline;}
 [data-theme="dark"] .hero-meta{border-top-color:#fff;}
 [data-theme="dark"] .hero-meta div{border-right-color:#fff;}
 [data-theme="dark"] .section{border-bottom-color:#fff;}
+[data-theme="dark"] .hero-logo{
+  filter: grayscale(1) invert(1);
+}
 [data-theme="dark"] .about-portrait{
   border-right-color:#fff;
   background:repeating-linear-gradient(45deg,#000 0 14px,#fff 14px 15px);
