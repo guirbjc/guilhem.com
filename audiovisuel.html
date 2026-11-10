@@ -208,6 +208,26 @@
   
   document.getElementById('copyright').textContent =
   '© ' + new Date().getFullYear() + ' Guilhem Rebéjac';
+
+  // --- Effet tactile : couleur au passage du doigt ---
+  document.addEventListener('touchstart',e=>{
+    const t=e.target.closest('.tile');
+    if(t) t.classList.add('touched');
+  },{passive:true});
+
+  document.addEventListener('touchmove',e=>{
+    const finger=document.elementFromPoint(e.touches[0].clientX,e.touches[0].clientY);
+    const tile=finger?finger.closest('.tile'):null;
+    document.querySelectorAll('.tile.touched').forEach(t=>{
+      if(t!==tile) t.classList.remove('touched');
+    });
+    if(tile) tile.classList.add('touched');
+  },{passive:true});
+
+  document.addEventListener('touchend',e=>{
+    const t=e.target.closest('.tile');
+    if(t) setTimeout(()=>t.classList.remove('touched'),400);
+  });
 </script>
 
 </body>
