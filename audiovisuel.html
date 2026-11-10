@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Guilhem Rebéjac — Audiovisuel</title>
 <link rel="stylesheet" href="./css/style.css">
-<script src="./js/theme.js"></script>
-<link rel="icon" href="./assets/images/favicon-rebejac.com-Mistral-n.png" type="image/png">
 </head>
 <body>
 
@@ -28,10 +26,10 @@
 </section>
 
 <main class="grid" id="grid">
-  <div class="tile" data-title="La Lune Écarlate" data-youtube="https://www.youtube.com/watch?v=PvxVMiMFRV8" data-desc="Title Sequence d'une série imaginaire sur des loups-garous à Toulouse à la fin du XIXe. Création originale de Guilhem Rebéjac, sur une musique de Raymond Lefèvre." data-year="">
+  <div class="tile" data-title="La Lune Écarlate" data-youtube="https://www.youtube.com/watch?v=PvxVMiMFRV8" data-desc="Title Sequence d'une série imaginaire sur des loups-garous à Toulouse à la fin du XIXe. Création originale de Guilhem Rebéjac, sur une musique de Raymond Lefèvre." data-year="2026">
     <img src="./assets/images/LaLuneEcarlate4.png" alt="La Lune Écarlate"><span class="tile-title">La Lune Écarlate</span>
   </div>
-  <div class="tile" data-title="106 dans un tunnel" data-youtube="https://www.youtube.com/watch?v=GWWM9_aqAGk" data-desc="Mon tout premier projet réalisé sur le logiciel Blender. Une 106 roule dans un tunnel." data-year="">
+  <div class="tile" data-title="106 dans un tunnel" data-youtube="https://www.youtube.com/watch?v=GWWM9_aqAGk" data-desc="Mon tout premier projet réalisé sur le logiciel Blender. Une 106 roule dans un tunnel." data-year="2025">
     <img src="./assets/images/106_3D.png" alt="En 106 — 3D"><span class="tile-title">En 106 — 3D</span>
   </div>
   <div class="tile" data-title="La Flamme" data-youtube="https://www.youtube.com/watch?v=5S5M0am1AKc" data-desc="Synopsis : deux amis sont à une soirée. L'un conseille à l'autre une technique vue dans un film pour donner son contact à la fille qui lui plaît : écrire son numéro sur un briquet puis le lui donner. Mais le fameux briquet disparaît." data-year="2024">
@@ -49,7 +47,7 @@
 <section class="section" id="photographie">
   <div class="section-head">
     <h3>Photographie</h3>
-    <span class="count">02.1 / Travaux</span>
+    <span class="count">02 / Travaux</span>
   </div>
   <div class="grid" id="photo-grid"></div>
 </section>
@@ -62,16 +60,16 @@
   <figure class="lb-frame">
     <img id="lb-img" src="" alt="">
     <a class="btn lb-btn" id="lb-youtube" href="#" target="_blank" rel="noopener noreferrer">Voir sur YouTube →</a>
-    <figcaption class="lb-caption">
+    <figcaption class="lb-caption lb-stacked">
       <span class="lb-title" id="lb-title"></span>
-      <span class="lb-year" id="lb-year"></span>
       <span class="lb-desc" id="lb-desc"></span>
+      <span class="lb-year" id="lb-year"></span>
     </figcaption>
   </figure>
 </div>
 
 <footer>
-  <span id="copyright"></span>
+  <span>© 2026 Guilhem Rebéjac</span>
   <span>Tous droits réservés</span>
   <a href="index.html">Accueil ↑</a>
 </footer>
@@ -205,29 +203,6 @@
   document.getElementById('lb-close').addEventListener('click',closeLb);
   lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
-  
-  document.getElementById('copyright').textContent =
-  '© ' + new Date().getFullYear() + ' Guilhem Rebéjac';
-
-  // --- Effet tactile : couleur au passage du doigt ---
-  document.addEventListener('touchstart',e=>{
-    const t=e.target.closest('.tile');
-    if(t) t.classList.add('touched');
-  },{passive:true});
-
-  document.addEventListener('touchmove',e=>{
-    const finger=document.elementFromPoint(e.touches[0].clientX,e.touches[0].clientY);
-    const tile=finger?finger.closest('.tile'):null;
-    document.querySelectorAll('.tile.touched').forEach(t=>{
-      if(t!==tile) t.classList.remove('touched');
-    });
-    if(tile) tile.classList.add('touched');
-  },{passive:true});
-
-  document.addEventListener('touchend',e=>{
-    const t=e.target.closest('.tile');
-    if(t) setTimeout(()=>t.classList.remove('touched'),400);
-  });
 </script>
 
 </body>
