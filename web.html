@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guilhem Rebéjac — Web</title>
+<link rel="stylesheet" href="./css/style.css">
+<script src="./js/theme.js"></script>
+<link rel="icon" href="./assets/images/favicon-rebejac.com-Mistral-n.png" type="image/png">
+</head>
+<body>
+
+<header>
+  <a class="brand" href="index.html"><span class="dot"></span>Guilhem&nbsp;Rebéjac</a>
+  <nav id="menu">
+    <a href="index.html">Guilhem</a>
+    <a href="design.html">Design</a>
+    <a href="audiovisuel.html">Audiovisuel</a>
+    <a href="web.html" class="active">Web</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu">≡</button>
+</header>
+
+<section class="cat-hero">
+  <p class="sub">03 / Travaux</p>
+  <h1>Web</h1>
+</section>
+
+<main class="grid" id="grid">
+  <a class="tile" href="./assets/images/declic.png"><span class="tile-num">01</span><img src="./assets/images/declic.png" alt="Déclic Photographie"><span class="tile-title">Déclic Photographie</span></a>
+  <a class="tile" href="./assets/images/departement-papi.png"><span class="tile-num">02</span><img src="./assets/images/departement-papi.png" alt="Département PAPI"><span class="tile-title">Département PAPI</span></a>
+</main>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="close" id="lb-close" aria-label="Fermer">×</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<footer>
+  <span id="copyright"></span>
+  <span>Tous droits réservés</span>
+  <a href="index.html">Accueil ↑</a>
+</footer>
+
+<script>
+  const burger=document.getElementById('burger');
+  const menu=document.getElementById('menu');
+  burger.addEventListener('click',()=>menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+  const lb=document.getElementById('lightbox');
+  const lbImg=document.getElementById('lb-img');
+  document.querySelectorAll('.tile').forEach(t=>t.addEventListener('click',e=>{
+    e.preventDefault();
+    lbImg.src=t.querySelector('img').src;
+    lb.classList.add('open');
+  }));
+  document.getElementById('lb-close').addEventListener('click',()=>lb.classList.remove('open'));
+  lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('open');});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open');});
+  
+  document.getElementById('copyright').textContent =
+  '© ' + new Date().getFullYear() + ' Guilhem Rebéjac';
+
+  // --- Effet tactile : couleur au passage du doigt ---
+  document.addEventListener('touchstart',e=>{
+    const t=e.target.closest('.tile');
+    if(t) t.classList.add('touched');
+  },{passive:true});
+
+  document.addEventListener('touchmove',e=>{
+    const finger=document.elementFromPoint(e.touches[0].clientX,e.touches[0].clientY);
+    const tile=finger?finger.closest('.tile'):null;
+    document.querySelectorAll('.tile.touched').forEach(t=>{
+      if(t!==tile) t.classList.remove('touched');
+    });
+    if(tile) tile.classList.add('touched');
+  },{passive:true});
+
+  document.addEventListener('touchend',e=>{
+    const t=e.target.closest('.tile');
+    if(t) setTimeout(()=>t.classList.remove('touched'),400);
+  });
+</script>
+
+</body>
+</html>

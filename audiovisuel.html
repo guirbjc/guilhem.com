@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guilhem Rebéjac — Audiovisuel</title>
+<link rel="stylesheet" href="./css/style.css">
+<script src="./js/theme.js"></script>
+<link rel="icon" href="./assets/images/favicon-rebejac.com-Mistral-n.png" type="image/png">
+</head>
+<body>
+
+<header>
+  <a class="brand" href="index.html"><span class="dot"></span>Guilhem&nbsp;Rebéjac</a>
+  <nav id="menu">
+    <a href="index.html">Guilhem</a>
+    <a href="design.html">Design</a>
+    <a href="audiovisuel.html" class="active">Audiovisuel</a>
+    <a href="web.html">Web</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu">≡</button>
+</header>
+
+<section class="cat-hero">
+  <p class="sub">02 / Travaux</p>
+  <h1>Audiovisuel</h1>
+</section>
+
+<main class="grid" id="grid">
+  <div class="tile" data-title="La Lune Écarlate" data-youtube="https://www.youtube.com/watch?v=PvxVMiMFRV8" data-desc="Title Sequence d'une série imaginaire sur des loups-garous à Toulouse à la fin du XIXe. Création originale de Guilhem Rebéjac, sur une musique de Raymond Lefèvre." data-year="">
+    <img src="./assets/images/LaLuneEcarlate4.png" alt="La Lune Écarlate"><span class="tile-title">La Lune Écarlate</span>
+  </div>
+  <div class="tile" data-title="106 dans un tunnel" data-youtube="https://www.youtube.com/watch?v=GWWM9_aqAGk" data-desc="Mon tout premier projet réalisé sur le logiciel Blender. Une 106 roule dans un tunnel." data-year="">
+    <img src="./assets/images/106_3D.png" alt="En 106 — 3D"><span class="tile-title">En 106 — 3D</span>
+  </div>
+  <div class="tile" data-title="La Flamme" data-youtube="https://www.youtube.com/watch?v=5S5M0am1AKc" data-desc="Synopsis : deux amis sont à une soirée. L'un conseille à l'autre une technique vue dans un film pour donner son contact à la fille qui lui plaît : écrire son numéro sur un briquet puis le lui donner. Mais le fameux briquet disparaît." data-year="2024">
+    <img src="./assets/images/la-flamme-2.png" alt="La Flamme"><span class="tile-title">La Flamme</span>
+  </div>
+  <div class="tile" data-title="Le Sixième Joueur" data-youtube="https://www.youtube.com/watch?v=71ZXiPVA3Mg" data-desc="Synopsis : un groupe d'amis joue à un jeu de société où il faut répondre à des questions. Celles-ci deviennent étrangement de plus en plus personnelles et ciblées à mesure que la partie se déroule." data-year="2023">
+    <img src="./assets/images/le-6-joueur-2.png" alt="Le Sixième Joueur"><span class="tile-title">Le Sixième Joueur</span>
+  </div>
+  <div class="tile" data-title="Trailer Vampire" data-youtube="https://www.youtube.com/watch?v=wnP-YkYw75Q" data-desc="Trailer de mon deuxième single « Vampire ». Réalisé sur le logiciel After Effects." data-year="2023">
+    <img src="./assets/images/vampire-cartoon.png" alt="Vampire Cartoon"><span class="tile-title">Vampire Cartoon</span>
+  </div>
+</main>
+
+<!-- PHOTOGRAPHIE -->
+<section class="section" id="photographie">
+  <div class="section-head">
+    <h3>Photographie</h3>
+    <span class="count">02.1 / Travaux</span>
+  </div>
+  <div class="grid" id="photo-grid"></div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="close" id="lb-close" aria-label="Fermer">×</button>
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Précédent">←</button>
+  <button class="lb-nav lb-next" id="lb-next" aria-label="Suivant">→</button>
+  <figure class="lb-frame">
+    <img id="lb-img" src="" alt="">
+    <a class="btn lb-btn" id="lb-youtube" href="#" target="_blank" rel="noopener noreferrer">Voir sur YouTube →</a>
+    <figcaption class="lb-caption">
+      <span class="lb-title" id="lb-title"></span>
+      <span class="lb-year" id="lb-year"></span>
+      <span class="lb-desc" id="lb-desc"></span>
+    </figcaption>
+  </figure>
+</div>
+
+<footer>
+  <span id="copyright"></span>
+  <span>Tous droits réservés</span>
+  <a href="index.html">Accueil ↑</a>
+</footer>
+
+<script>
+  // --- PHOTOS : fichiers de ./assets/images/photographies/ (ordre mélangé) ---
+  const PHOTOS = [
+    "église-vincennes.jpg",
+    "rue-de-marseille.jpg",
+    "haut-parleur.jpg",
+    "vignes.png",
+    "café.jpg",
+    "tour-eiffel-2.jpg",
+    "empreinte-sable.jpg",
+    "montmartre.jpg",
+    "20230715_113454.jpg",
+    "platanes-d'aigouze.JPG",
+    "lune-maritime.JPG",
+    "palmier-menton.JPG",
+    "crépuscule.JPG",
+    "palmiers-niçois.JPG",
+    "20221231_225303.jpg",
+    "bateau-garrigue.JPG",
+    "sète-au-loin.jpg",
+    "sillon-d'avion.jpg",
+    "fenêtre-sur-toit.jpg",
+    "alexandre-III.jpg",
+    "C15-D.jpg",
+    "feuilles-de-vigne.JPG",
+    "tisséo.jpg",
+    "aube-salante.jpg",
+    "sainte-victoire.jpg",
+    "20230816_192314.jpg",
+    "soir-d'orange.jpg",
+    "arbre-de-fer.jpg",
+    "rose.jpg",
+    "port-de-sète.JPG",
+    "branche-racine.jpg",
+    "bateau-2-r.jpg",
+    "tour-eiffel-1.jpg",
+    "nuage-maritime.jpg",
+    "jardin-provençal.JPG",
+    "anniversaire.png",
+    "nice.JPG",
+    "nuage-mauve.jpg",
+    "palmiers-orange.png",
+    "vespa-bleue.JPG",
+    "abeille-sur-fleur.jpg",
+    "marseillan-soir.png",
+    "jardin-cavaillon-3-r.png",
+    "versailles.jpg",
+    "nuage-sur-toit.jpg",
+    "garrigue-photographe.JPG",
+    "artiste.jpg",
+    "menton.JPG",
+    "dune-de-sable.jpg",
+    "palmiers-grain.jpg",
+  ];
+  const PHOTO_DIR = "./assets/images/photographies/";
+
+  function photoTitle(filename){
+    return filename
+      .replace(/\.[^.]+$/,'')
+      .replace(/[-_]+/g,' ')
+      .replace(/\b\w/g,c=>c.toUpperCase());
+  }
+
+  const photoGrid=document.getElementById('photo-grid');
+  PHOTOS.forEach(f=>{
+    const tile=document.createElement('div');
+    tile.className='tile';
+    tile.dataset.title=photoTitle(f);
+    tile.dataset.desc='';
+    tile.dataset.year='';
+    tile.dataset.youtube='';
+    tile.innerHTML='<img src="'+PHOTO_DIR+f+'" alt="'+photoTitle(f)+'" loading="lazy">'
+      +'<span class="tile-title">'+photoTitle(f)+'</span>';
+    photoGrid.appendChild(tile);
+  });
+
+  const burger=document.getElementById('burger');
+  const menu=document.getElementById('menu');
+  burger.addEventListener('click',()=>menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+  const lb=document.getElementById('lightbox');
+  const lbImg=document.getElementById('lb-img');
+  const lbTitle=document.getElementById('lb-title');
+  const lbDesc=document.getElementById('lb-desc');
+  const lbYear=document.getElementById('lb-year');
+  const lbYt=document.getElementById('lb-youtube');
+
+  // --- Navigation précédent / suivant ---
+  const tiles=[...document.querySelectorAll('.tile')];
+  let current=0;
+
+  function show(i){
+    current=(i+tiles.length)%tiles.length;
+    const t=tiles[current];
+    lbImg.src=t.querySelector('img').src;
+    lbImg.alt=t.querySelector('img').alt;
+    lbTitle.textContent=t.dataset.title||'';
+    lbDesc.textContent=t.dataset.desc||'';
+    lbYear.textContent=t.dataset.year?('Année — '+t.dataset.year):'';
+    if(t.dataset.youtube){
+      lbYt.href=t.dataset.youtube;
+      lbYt.style.display='';
+    }else{
+      lbYt.style.display='none';
+    }
+  }
+
+  document.getElementById('lb-prev').addEventListener('click',e=>{
+    e.stopPropagation();show(current-1);
+  });
+  document.getElementById('lb-next').addEventListener('click',e=>{
+    e.stopPropagation();show(current+1);
+  });
+  document.addEventListener('keydown',e=>{
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='ArrowLeft')show(current-1);
+    if(e.key==='ArrowRight')show(current+1);
+  });
+
+  tiles.forEach(t=>t.addEventListener('click',()=>{
+    show(tiles.indexOf(t));
+    lb.classList.add('open');
+  }));
+
+  function closeLb(){lb.classList.remove('open');}
+  document.getElementById('lb-close').addEventListener('click',closeLb);
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+  
+  document.getElementById('copyright').textContent =
+  '© ' + new Date().getFullYear() + ' Guilhem Rebéjac';
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guilhem Rebéjac — Contact</title>
+<link rel="stylesheet" href="./css/style.css">
+<script src="./js/theme.js"></script>
+<link rel="icon" href="./assets/images/favicon-rebejac.com-Mistral-n.png" type="image/png">
+</head>
+<body>
+
+<header>
+  <a class="brand" href="index.html"><span class="dot"></span>Guilhem&nbsp;Rebéjac</a>
+  <nav id="menu">
+    <a href="index.html">Guilhem</a>
+    <a href="design.html">Design</a>
+    <a href="audiovisuel.html">Audiovisuel</a>
+    <a href="web.html">Web</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu">≡</button>
+</header>
+
+<section class="contact" id="contact" style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-left:0;padding-right:0;">
+  <div style="padding:0 4vw;">
+    <p class="num">04 / Contact</p>
+    <h3>Travaillons<br><em>Ensemble</em></h3>
+  </div>
+  <div class="contact-links">
+    <a class="contact-row" href="mailto:guilhemrebejac@gmail.com">
+      <span class="contact-label">Mail</span>
+      <span class="contact-value">guilhemrebejac@gmail.com</span>
+      <span class="arrow">→</span>
+    </a>
+    <a class="contact-row" href="https://www.linkedin.com/in/guilhemreb%C3%A9jac/" target="_blank" rel="noopener noreferrer">
+      <span class="contact-label">LinkedIn</span>
+      <span class="contact-value">Guilhem Rebéjac</span>
+      <span class="arrow">→</span>
+    </a>
+    <a class="contact-row" href="https://www.instagram.com/guirbjc/" target="_blank" rel="noopener noreferrer">
+      <span class="contact-label">Instagram</span>
+      <span class="contact-value">@guirbjc</span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span id="copyright"></span>
+  <span>Tous droits réservés</span>
+  <a href="index.html">Accueil ↑</a>
+</footer>
+
+<script>
+  const burger=document.getElementById('burger');
+  const menu=document.getElementById('menu');
+  burger.addEventListener('click',()=>menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+  
+  document.getElementById('copyright').textContent =
+  '© ' + new Date().getFullYear() + ' Guilhem Rebéjac';
+</script>
+
+</body>
+</html>

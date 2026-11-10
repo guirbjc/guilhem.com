@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guilhem Rebéjac — Portfolio</title>
+<link rel="stylesheet" href="./css/style.css">
+<script src="./js/theme.js"></script>
+<link rel="icon" href="./assets/images/favicon-rebejac.com-Mistral-n.png" type="image/png">
+</head>
+<body>
+
+<header>
+  <a class="brand" href="#top"><span class="dot"></span>Guilhem&nbsp;Rebéjac</a>
+  <nav id="menu">
+    <a href="index.html" class="active">Guilhem</a>
+    <a href="design.html">Design</a>
+    <a href="audiovisuel.html">Audiovisuel</a>
+    <a href="web.html">Web</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu">≡</button>
+</header>
+
+<!-- HERO — LOGO CENTRAL -->
+<section class="hero" id="top">
+  <div class="hero-top">
+    <img class="hero-logo" src="./assets/images/RBJC_logo_noir_plein.png" alt="Logo RBJC">
+    <p class="kicker">Portfolio — Ingénieur &amp; Artiste pluridisciplinaire</p>
+    <h1>Guilhem<br><span class="thin">Rebéjac</span></h1>
+  </div>
+  <div class="hero-meta">
+    <div>Basé en<strong>France</strong></div>
+    <div>Disciplines<strong>Design · Audiovisuel · Web</strong></div>
+    <div>Statut<strong>Disponible</strong></div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Design — Audiovisuel — Web — Photographie — Dessin — Musique — Branding — Création visuelle — Post-Production — Motion Design — VFX 3D — Direction Artistique — </span>
+    <span aria-hidden="true">Design — Audiovisuel — Web — Photographie — Dessin — Musique — Branding — Création visuelle — Post-Production — Motion Design — VFX 3D — Direction Artistique — </span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="a-propos">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-portrait">
+        <img class="about-photo" src="./assets/images/CV_NB_2.png" alt="Portrait de Guilhem Rebéjac">
+      </div>
+      <div class="about-text">
+        <p class="num">01 / À propos</p>
+        <h2>Ingénieur.<br>Artiste.</h2>
+        <p>Pluridisciplinaire, passionné par le design, l'audiovisuel et la création web. Je conçois, compose et construis des projets où la technique rencontre l'esthétique.</p>
+        <p>Ce portfolio rassemble ma vision et mes réalisations : chaque pièce est une expérimentation entre structure et émotion.</p>
+        <div class="tags">
+          <a class="tag" href="design.html">Design graphique</a>
+          <a class="tag" href="audiovisuel.html">Audiovisuel</a>
+          <a class="tag" href="web.html">Web</a>
+          <span class="tag">Ingénierie</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="section" id="travaux">
+  <div class="section-head">
+    <h3>Travaux</h3>
+    <span class="count" id="year-range"></span>
+  </div>
+  <div class="work-list">
+    <a class="work" href="design.html">
+      <span class="idx">01</span>
+      <span class="name">Design</span>
+      <span class="desc">Identités, supports &amp; graphisme</span>
+      <span class="arrow">→</span>
+    </a>
+    <a class="work" href="audiovisuel.html">
+      <span class="idx">02</span>
+      <span class="name">Audiovisuel</span>
+      <span class="desc">Vidéo, 3D &amp; animation + Photographie</span>
+      <span class="arrow">→</span>
+    </a>
+    <a class="work" href="web.html">
+      <span class="idx">03</span>
+      <span class="name">Web</span>
+      <span class="desc">Sites &amp; expériences en ligne</span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="num">04 / Contact</p>
+  <h3>Travaillons<br><em>Ensemble</em></h3>
+  <a class="btn" href="contact.html">Me contacter →</a>
+</section>
+
+<footer>
+  <span id="copyright"></span>
+  <span>Tous droits réservés</span>
+  <a href="#top">Retour en haut ↑</a>
+</footer>
+
+<script>
+  const burger=document.getElementById('burger');
+  const menu=document.getElementById('menu');
+  burger.addEventListener('click',()=>menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+  
+  const year = new Date().getFullYear();
+  document.getElementById('copyright').textContent =
+    '© ' + year + ' Guilhem Rebéjac';
+  document.getElementById('year-range').textContent =
+    '2024 — ' + year;
+</script>
+
+</body>
+</html>
