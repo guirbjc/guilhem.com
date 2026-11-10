@@ -300,3 +300,50 @@ footer a:hover{color:#7ba4ff;text-decoration:underline;}
   .work .arrow{grid-column:3;grid-row:1;}
   .work .desc{grid-column:2;grid-row:2;grid-column:2/4;}
 }
+
+/* ---------- THÈME SOMBRE (auto après 18h via theme.js) ---------- */
+:root[data-theme="dark"]{
+  --bg:#000000;
+  --fg:#ffffff;
+  --azur:#5b85e6;
+}
+[data-theme="dark"] body{background:#000;color:#fff;}
+[data-theme="dark"] header{background:#000;border-bottom-color:#fff;}
+[data-theme="dark"] .brand{border-right-color:#fff;}
+[data-theme="dark"] nav a{border-left-color:#fff;}
+[data-theme="dark"] .burger{background:#fff;color:#000;}
+[data-theme="dark"] .hero{border-bottom-color:#fff;}
+[data-theme="dark"] .hero h1 .thin{outline-color:#fff;}
+[data-theme="dark"] .hero-meta{border-top-color:#fff;}
+[data-theme="dark"] .hero-meta div{border-right-color:#fff;}
+[data-theme="dark"] .section{border-bottom-color:#fff;}
+[data-theme="dark"] .about-portrait{
+  border-right-color:#fff;
+  background:repeating-linear-gradient(45deg,#000 0 14px,#fff 14px 15px);
+}
+[data-theme="dark"] .about-photo,
+[data-theme="dark"] .about-portrait svg{border-color:#fff;background:#000;}
+[data-theme="dark"] .tag{border-color:#fff;}
+[data-theme="dark"] .section-head{border-bottom-color:#fff;}
+[data-theme="dark"] .work{border-bottom-color:#fff;}
+[data-theme="dark"] .cat-hero{border-bottom-color:#fff;}
+[data-theme="dark"] .grid{border-right-color:#fff;}
+[data-theme="dark"] .tile{border-bottom-color:#fff;border-left-color:#fff;}
+[data-theme="dark"] .tile .tile-title{background:#fff;color:#000;}
+[data-theme="dark"] .tile:hover .tile-title,
+[data-theme="dark"] .tile.touched .tile-title,
+[data-theme="dark"] .tile:active .tile-title{background:var(--azur);color:#fff;}
+[data-theme="dark"] .contact-row{border-bottom-color:#fff;}
+[data-theme="dark"] .contact-row:first-child{border-top-color:#fff;}
+[data-theme="dark"] .contact h3 em{-webkit-text-stroke-color:#fff;}
+[data-theme="dark"] .btn{border-color:#fff;}
+[data-theme="dark"] .lightbox{background:rgba(0,0,0,.96);}
+[data-theme="dark"] .lightbox img{border-color:#fff;}
+[data-theme="dark"] .lb-caption{background:#fff;color:#000;border-color:#fff;}
+[data-theme="dark"] .lb-title{color:#000;}
+[data-theme="dark"] .lightbox .close,
+[data-theme="dark"] .lb-nav{background:#000;color:#fff;border-color:#fff;}
+[data-theme="dark"] .lightbox .close:hover,
+[data-theme="dark"] .lb-nav:hover{background:var(--azur);color:#fff;border-color:var(--azur);}
+[data-theme="dark"] footer{background:#fff;color:#000;}
+[data-theme="dark"] footer a:hover{color:var(--azur);}
