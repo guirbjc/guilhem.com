@@ -305,7 +305,7 @@ footer a:hover{color:#7ba4ff;text-decoration:underline;}
 :root[data-theme="dark"]{
   --bg:#000000;
   --fg:#ffffff;
-  --azur:#5b85e6;
+  /* --azur:#5b85e6; */
 }
 [data-theme="dark"] body{background:#000;color:#fff;}
 [data-theme="dark"] header{background:#000;border-bottom-color:#fff;}
