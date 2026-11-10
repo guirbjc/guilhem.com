@@ -28,15 +28,15 @@
 </section>
 
 <main class="grid" id="grid">
-  <a class="tile" href="./assets/images/declic.png"><span class="tile-num">01</span><img src="./assets/images/declic.png" alt="Déclic Photographie"><span class="tile-title">Déclic Photographie</span></a>
-  <a class="tile" href="./assets/images/departement-papi.png"><span class="tile-num">02</span><img src="./assets/images/departement-papi.png" alt="Département PAPI"><span class="tile-title">Département PAPI</span></a>
+  <a class="tile" href="https://guirbjc.github.io/declic-photographie/" target="_blank" rel="noopener noreferrer">
+    <img src="./assets/images/declic.png" alt="Déclic Photographie">
+    <span class="tile-title">Déclic Photographie</span>
+  </a>
+  <a class="tile" href="https://guirbjc.github.io/departement-papi/" target="_blank" rel="noopener noreferrer">
+    <img src="./assets/images/departement-papi.png" alt="Département PAPI">
+    <span class="tile-title">Département PAPI</span>
+  </a>
 </main>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <button class="close" id="lb-close" aria-label="Fermer">×</button>
-  <img id="lb-img" src="" alt="">
-</div>
 
 <footer>
   <span id="copyright"></span>
@@ -50,19 +50,8 @@
   burger.addEventListener('click',()=>menu.classList.toggle('open'));
   menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
 
-  const lb=document.getElementById('lightbox');
-  const lbImg=document.getElementById('lb-img');
-  document.querySelectorAll('.tile').forEach(t=>t.addEventListener('click',e=>{
-    e.preventDefault();
-    lbImg.src=t.querySelector('img').src;
-    lb.classList.add('open');
-  }));
-  document.getElementById('lb-close').addEventListener('click',()=>lb.classList.remove('open'));
-  lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('open');});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open');});
-  
   document.getElementById('copyright').textContent =
-  '© ' + new Date().getFullYear() + ' Guilhem Rebéjac';
+    '© ' + new Date().getFullYear() + ' Guilhem Rebéjac';
 
   // --- Effet tactile : couleur au passage du doigt ---
   document.addEventListener('touchstart',e=>{
