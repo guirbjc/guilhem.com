@@ -123,7 +123,7 @@
     {f:"tisséo.jpg",y:"2018"},
     {f:"aube-salante.jpg",y:"2018"},
     {f:"sainte-victoire.jpg",y:"2017"},
-    "20230816_192314.jpg"
+    "20230816_192314.jpg",
     {f:"soir-d'orange.jpg",y:"2022"},
     {f:"arbre-de-fer.jpg",y:"2023"},
     {f:"rose.jpg",y:"2022"},
