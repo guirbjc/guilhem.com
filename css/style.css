@@ -271,22 +271,6 @@ nav a:hover,nav a.active{background:var(--azur);color:#fff;}
 .lb-desc{
   grid-column:1/-1;font-size:13px;line-height:1.55;max-width:70ch;
 }
-#lb-spin{
-  display:none;height:62vh;max-width:88vw;
-  align-items:center;justify-content:center;
-}
-.lightbox.lb-loading #lb-spin{display:flex;}
-.lightbox.lb-loading #lb-img{display:none;}
-[data-theme="dark"] #lb-spin{background:#000;border-color:#fff;}
-[data-theme="dark"] #lb-spin img{filter:invert(1);}
-#lb-spin img{width:clamp(80px,14vw,140px);animation:spin3d 2.4s linear infinite;}
-@media (max-width:860px){
-  #lb-spin{height:46vh;}
-}
-/* Variante empilée (audiovisuel) : nom, description, date */
-.lb-caption.lb-stacked{
-  display:flex;flex-direction:column;gap:6px;align-items:flex-start;
-}
 .lb-caption.lb-stacked .lb-desc{grid-column:auto;}
 .lightbox .close{
   position:absolute;top:20px;right:24px;font-size:34px;font-weight:200;
