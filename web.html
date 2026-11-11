@@ -2,13 +2,17 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Guilhem Rebéjac — Web</title>
 <link rel="stylesheet" href="./css/style.css">
 <script src="./js/theme.js"></script>
 <link rel="icon" href="./assets/images/favicon-rebejac.com-Mistral-n.png" type="image/png">
 </head>
 <body>
+<!-- Loader -->
+<div id="loader"><img src="./assets/images/TON-LOGO.png" alt=""></div>
+<!-- Curseur -->
+<div id="cursor"></div>
 
 <header>
   <a class="brand" href="index.html"><span class="dot"></span>Guilhem&nbsp;Rebéjac</a>
@@ -48,35 +52,7 @@
   <a href="index.html">Accueil ↑</a>
 </footer>
 
-<script>
-  const burger=document.getElementById('burger');
-  const menu=document.getElementById('menu');
-  burger.addEventListener('click',()=>menu.classList.toggle('open'));
-  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
-
-  document.getElementById('copyright').textContent =
-    '© ' + new Date().getFullYear() + ' Guilhem Rebéjac';
-
-  // --- Effet tactile : couleur au passage du doigt ---
-  document.addEventListener('touchstart',e=>{
-    const t=e.target.closest('.tile');
-    if(t) t.classList.add('touched');
-  },{passive:true});
-
-  document.addEventListener('touchmove',e=>{
-    const finger=document.elementFromPoint(e.touches[0].clientX,e.touches[0].clientY);
-    const tile=finger?finger.closest('.tile'):null;
-    document.querySelectorAll('.tile.touched').forEach(t=>{
-      if(t!==tile) t.classList.remove('touched');
-    });
-    if(tile) tile.classList.add('touched');
-  },{passive:true});
-
-  document.addEventListener('touchend',e=>{
-    const t=e.target.closest('.tile');
-    if(t) setTimeout(()=>t.classList.remove('touched'),400);
-  });
-</script>
+<script src="./js/main.js"></script>
 
 </body>
 </html>

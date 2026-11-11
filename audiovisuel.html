@@ -2,13 +2,17 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Guilhem Rebéjac — Audiovisuel</title>
 <link rel="stylesheet" href="./css/style.css">
 <script src="./js/theme.js"></script>
 <link rel="icon" href="./assets/images/favicon-rebejac.com-Mistral-n.png" type="image/png">
 </head>
 <body>
+<!-- Loader -->
+<div id="loader"><img src="./assets/images/TON-LOGO.png" alt=""></div>
+<!-- Curseur -->
+<div id="cursor"></div>
 
 <header>
   <a class="brand" href="index.html"><span class="dot"></span>Guilhem&nbsp;Rebéjac</a>
@@ -76,136 +80,7 @@
   <a href="index.html">Accueil ↑</a>
 </footer>
 
-<script>
-  // --- PHOTOS : fichiers de ./assets/images/photographies/ (ordre mélangé) ---
-  const PHOTOS = [
-    "église-vincennes.jpg",
-    "rue-de-marseille.jpg",
-    "haut-parleur.jpg",
-    "vignes.png",
-    "café-du-matin.jpg",
-    "eiffel-rose-1.jpg",
-    "empreinte-sable.jpg",
-    "montmartre.jpg",
-    "20230715_113454.jpg",
-    "platanes-d'aigouze.JPG",
-    "lune-maritime.JPG",
-    "palmier-menton.JPG",
-    "crépuscule.JPG",
-    "palmiers-niçois.JPG",
-    "20221231_225303.jpg",
-    "bateau-garrigue.JPG",
-    "sète-au-loin.jpg",
-    "sillon-d'avion.jpg",
-    "fenêtre-sur-toit.jpg",
-    "alexandre-III.jpg",
-    "C15-D.jpg",
-    "feuilles-de-vigne.JPG",
-    "tisséo.jpg",
-    "aube-salante.jpg",
-    "sainte-victoire.jpg",
-    "20230816_192314.jpg",
-    "soir-d'orange.jpg",
-    "arbre-de-fer.jpg",
-    "rose.jpg",
-    "port-de-sète.JPG",
-    "branche-racine.jpg",
-    "bateau-de-pêche.jpg",
-    "eiffel-rose-2.jpg",
-    "nuage-maritime.jpg",
-    "jardin-provençal.JPG",
-    "anniversaire.png",
-    "nice.JPG",
-    "nuage-mauve.jpg",
-    "palmiers-orange.png",
-    "vespa-bleue.JPG",
-    "abeille-sur-fleur.jpg",
-    "marseillan-soir.png",
-    "paisible-provence.png",
-    "versailles.jpg",
-    "nuage-sur-toit.jpg",
-    "garrigue-photographe.JPG",
-    "artiste.jpg",
-    "menton.JPG",
-    "dune-de-sable.jpg",
-    "palmiers-grain.jpg",
-  ];
-  const PHOTO_DIR = "./assets/images/photographies/";
-
-  function photoTitle(filename){
-    return filename
-      .replace(/\.[^.]+$/,'')
-      .replace(/[-_]+/g,' ')
-      .replace(/\b\w/g,c=>c.toUpperCase());
-  }
-
-  const photoGrid=document.getElementById('photo-grid');
-  PHOTOS.forEach(f=>{
-    const tile=document.createElement('div');
-    tile.className='tile';
-    tile.dataset.title=photoTitle(f);
-    tile.dataset.desc='';
-    tile.dataset.year='';
-    tile.dataset.youtube='';
-    tile.innerHTML='<img src="'+PHOTO_DIR+f+'" alt="'+photoTitle(f)+'" loading="lazy">'
-      +'<span class="tile-title">'+photoTitle(f)+'</span>';
-    photoGrid.appendChild(tile);
-  });
-
-  const burger=document.getElementById('burger');
-  const menu=document.getElementById('menu');
-  burger.addEventListener('click',()=>menu.classList.toggle('open'));
-  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
-
-  const lb=document.getElementById('lightbox');
-  const lbImg=document.getElementById('lb-img');
-  const lbTitle=document.getElementById('lb-title');
-  const lbDesc=document.getElementById('lb-desc');
-  const lbYear=document.getElementById('lb-year');
-  const lbYt=document.getElementById('lb-youtube');
-
-  // --- Navigation précédent / suivant ---
-  const tiles=[...document.querySelectorAll('.tile')];
-  let current=0;
-
-  function show(i){
-    current=(i+tiles.length)%tiles.length;
-    const t=tiles[current];
-    lbImg.src=t.querySelector('img').src;
-    lbImg.alt=t.querySelector('img').alt;
-    lbTitle.textContent=t.dataset.title||'';
-    lbDesc.textContent=t.dataset.desc||'';
-    lbYear.textContent=t.dataset.year?('Année — '+t.dataset.year):'';
-    if(t.dataset.youtube){
-      lbYt.href=t.dataset.youtube;
-      lbYt.style.display='';
-    }else{
-      lbYt.style.display='none';
-    }
-  }
-
-  document.getElementById('lb-prev').addEventListener('click',e=>{
-    e.stopPropagation();show(current-1);
-  });
-  document.getElementById('lb-next').addEventListener('click',e=>{
-    e.stopPropagation();show(current+1);
-  });
-  document.addEventListener('keydown',e=>{
-    if(!lb.classList.contains('open'))return;
-    if(e.key==='ArrowLeft')show(current-1);
-    if(e.key==='ArrowRight')show(current+1);
-  });
-
-  tiles.forEach(t=>t.addEventListener('click',()=>{
-    show(tiles.indexOf(t));
-    lb.classList.add('open');
-  }));
-
-  function closeLb(){lb.classList.remove('open');}
-  document.getElementById('lb-close').addEventListener('click',closeLb);
-  lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
-</script>
+<script src="./js/main.js"></script>
 
 </body>
 </html>

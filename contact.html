@@ -2,13 +2,17 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Guilhem Rebéjac — Contact</title>
 <link rel="stylesheet" href="./css/style.css">
 <script src="./js/theme.js"></script>
 <link rel="icon" href="./assets/images/favicon-rebejac.com-Mistral-n.png" type="image/png">
 </head>
 <body>
+<!-- Loader -->
+<div id="loader"><img src="./assets/images/TON-LOGO.png" alt=""></div>
+<!-- Curseur -->
+<div id="cursor"></div>
 
 <header>
   <a class="brand" href="index.html"><span class="dot"></span>Guilhem&nbsp;Rebéjac</a>
@@ -52,15 +56,7 @@
   <a href="index.html">Accueil ↑</a>
 </footer>
 
-<script>
-  const burger=document.getElementById('burger');
-  const menu=document.getElementById('menu');
-  burger.addEventListener('click',()=>menu.classList.toggle('open'));
-  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
-  
-  document.getElementById('copyright').textContent =
-  '© ' + new Date().getFullYear() + ' Guilhem Rebéjac';
-</script>
+<script src="./js/main.js"></script>
 
 </body>
 </html>
