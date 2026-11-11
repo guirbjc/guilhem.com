@@ -77,7 +77,6 @@ nav a:hover,nav a.active{background:var(--azur);color:#fff;}
 .hero-logo{
   width:clamp(140px,22vw,260px);margin-bottom:28px;
   filter:grayscale(1) contrast(1.1)
-         drop-shadow(3px 3px 0 rgba(0,0,0,.25));
 }
 .kicker{
   font-size:12px;font-weight:700;text-transform:uppercase;
