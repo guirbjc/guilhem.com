@@ -266,7 +266,7 @@ nav a:hover,nav a.active{background:var(--azur);color:#fff;}
 }
 .lb-year{
   font-size:11px;font-weight:700;text-transform:uppercase;
-  letter-spacing:.2em;color:#7ba4ff;
+  letter-spacing:.2em;color:#0038a8;
 }
 .lb-desc{
   grid-column:1/-1;font-size:13px;line-height:1.55;max-width:70ch;
