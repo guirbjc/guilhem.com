@@ -189,6 +189,9 @@
     current=(i+tiles.length)%tiles.length;
     const t=tiles[current];
     lbImg.src=t.querySelector('img').src;
+    lb.classList.add('lb-loading');
+    lbImg.onload=()=>lb.classList.remove('lb-loading');
+    lbImg.onerror=()=>lb.classList.remove('lb-loading');
     lbImg.alt=t.querySelector('img').alt;
     if(lbTitle)lbTitle.textContent=t.dataset.title||'';
     if(lbDesc)lbDesc.textContent=t.dataset.desc||'';
