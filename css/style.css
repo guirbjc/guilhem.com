@@ -121,7 +121,6 @@ nav a:hover,nav a.active{background:var(--azur);color:#fff;}
   text-transform:uppercase;letter-spacing:.25em;
   animation:slide 22s linear infinite;
 }
-@keyframes slide{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 .marquee:hover span{animation-play-state:paused;}
 
 /* ---------- MARQUEE : décalage au doigt ---------- */

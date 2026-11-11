@@ -98,70 +98,76 @@
   const photoGrid=document.getElementById('photo-grid');
   if(!photoGrid)return;
   const PHOTOS=[
-    "église-vincennes.jpg",
-    "rue-de-marseille.jpg",
-    "haut-parleur.jpg",
-    "vignes.png",
-    "café-du-matin.jpg",
-    "eiffel-rose-1.jpg",
-    "empreinte-sable.jpg",
-    "montmartre.jpg",
+    {f:"église-vincennes.jpg",y:"2023"},
+    {f:"rue-de-marseille.jpg",y:"2022"},
+    {f:"haut-parleur.jpg",y:"2022"},
+    {f:"vignes.png",y:"2025"},
+    {f:"café-du-matin.jpg",y:"2024"},
+    {f:"eiffel-rose-1.jpg",y:"2023"},
+    {f:"empreinte-sable.jpg",y:"2021"},
+    {f:"montmartre.jpg",y:"2023"},
     "20230715_113454.jpg",
-    "platanes-d'aigouze.JPG",
-    "lune-maritime.JPG",
-    "palmier-menton.JPG",
-    "crépuscule.JPG",
-    "palmiers-niçois.JPG",
+    {f:"platanes-d'aigouze.JPG",y:"2024"},
+    {f:"lune-maritime.JPG",y:"2024"},
+    {f:"palmier-menton.JPG",y:"2022"},
+    {f:"crépuscule.JPG",y:"2020"},
+    {f:"palmiers-niçois.JPG",y:"2022"},
     "20221231_225303.jpg",
-    "bateau-garrigue.JPG",
-    "sète-au-loin.jpg",
-    "sillon-d'avion.jpg",
-    "fenêtre-sur-toit.jpg",
-    "alexandre-III.jpg",
-    "C15-D.jpg",
-    "feuilles-de-vigne.JPG",
-    "tisséo.jpg",
-    "aube-salante.jpg",
-    "sainte-victoire.jpg",
-    "20230816_192314.jpg",
-    "soir-d'orange.jpg",
-    "arbre-de-fer.jpg",
-    "rose.jpg",
-    "port-de-sète.JPG",
-    "branche-racine.jpg",
-    "bateau-de-pêche.jpg",
-    "eiffel-rose-2.jpg",
-    "nuage-maritime.jpg",
-    "jardin-provençal.JPG",
-    "anniversaire.png",
-    "nice.JPG",
-    "nuage-mauve.jpg",
-    "palmiers-orange.png",
-    "vespa-bleue.JPG",
-    "abeille-sur-fleur.jpg",
-    "marseillan-soir.png",
-    "paisible-provence.png",
-    "versailles.jpg",
-    "nuage-sur-toit.jpg",
-    "garrigue-photographe.JPG",
-    "artiste.jpg",
-    "menton.JPG",
-    "dune-de-sable.jpg",
-    "palmiers-grain.jpg",
+    {f:"bateau-garrigue.JPG",y:"2024"},
+    {f:"sète-au-loin.jpg",y:"2021"},
+    {f:"sillon-d'avion.jpg",y:"2022"},
+    {f:"fenêtre-sur-toit.jpg",y:"2023"},
+    {f:"alexandre-III.jpg",y:"2024"},
+    {f:"C15-D.jpg",y:"2021"},
+    {f:"feuilles-de-vigne.JPG",y:"2020"},
+    {f:"tisséo.jpg",y:"2018"},
+    {f:"aube-salante.jpg",y:"2018"},
+    {f:"sainte-victoire.jpg",y:"2017"},
+    "20230816_192314.jpg"
+    {f:"soir-d'orange.jpg",y:"2022"},
+    {f:"arbre-de-fer.jpg",y:"2023"},
+    {f:"rose.jpg",y:"2022"},
+    {f:"port-de-sète.JPG",y:"2025"},
+    {f:"branche-racine.jpg",y:"2022"},
+    {f:"bateau-de-pêche.jpg",y:"2022"},
+    {f:"eiffel-rose-2.jpg",y:"2023"},
+    {f:"nuage-maritime.jpg",y:"2023"},
+    {f:"jardin-provençal.JPG",y:"2025"},
+    {f:"anniversaire.png",y:"2025"},
+    {f:"nice.JPG",y:"2022"},
+    {f:"nuage-mauve.jpg",y:"2021"},
+    {f:"palmiers-orange.png",y:"2021"},
+    {f:"vespa-bleue.JPG",y:"2025"},
+    {f:"abeille-sur-fleur.jpg",y:"2022"},
+    {f:"marseillan-soir.png",y:"2024"},
+    {f:"paisible-provence.png",y:"2025"},
+    {f:"versailles.jpg",y:"2023"},
+    {f:"nuage-sur-toit.jpg",y:"2023"},
+    {f:"garrigue-photographe.JPG",y:"2024"},
+    {f:"artiste.jpg",y:"2024"},
+    {f:"menton.JPG",y:"2022"},
+    {f:"dune-de-sable.jpg",y:"2019"},
+    {f:"palmiers-grain.jpg",y:"2018"},
   ];
   const PHOTO_DIR="./assets/images/photographies/";
   function photoTitle(f){
     return f.replace(/\.[^.]+$/,'').replace(/[-_]+/g,' ')
             .replace(/\b\w/g,c=>c.toUpperCase());
   }
-  PHOTOS.forEach(f=>{
-    const tile=document.createElement('div');
-    tile.className='tile';
-    tile.dataset.title=photoTitle(f);
-    tile.dataset.desc='';tile.dataset.year='';tile.dataset.youtube='';
-    tile.innerHTML='<img src="'+PHOTO_DIR+f+'" alt="'+photoTitle(f)+'" loading="lazy">'
+  PHOTOS.forEach(item=>{
+  const f=typeof item==='string'?item:item.f;
+  const year=typeof item==='string'
+      ?(f.match(/^(20\d{2})/)||[])[1]||''
+      :item.y;
+  const tile=document.createElement('div');
+  tile.className='tile';
+  tile.dataset.title=photoTitle(f);
+  tile.dataset.desc='';
+  tile.dataset.year=year;
+  tile.dataset.youtube='';
+  tile.innerHTML='<img src="'+PHOTO_DIR+f+'" alt="'+photoTitle(f)+'" loading="lazy">'
       +'<span class="tile-title">'+photoTitle(f)+'</span>';
-    photoGrid.appendChild(tile);
+  photoGrid.appendChild(tile);
   });
 })();
 
