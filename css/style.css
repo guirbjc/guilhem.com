@@ -303,9 +303,29 @@ nav a:hover,nav a.active{background:var(--azur);color:#fff;}
 .lb-nav:hover{background:var(--azur);color:#fff;border-color:var(--azur);}
 .lb-nav:hover .lb-prev, .lb-nav:hover .lb-next{transform:translateY(-50%);}
 @media (max-width:860px){
+  .lb-caption.lb-stacked {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+  }
+
+  .lb-caption.lb-stacked .lb-title,
+  .lb-caption.lb-stacked .lb-desc,
+  .lb-caption.lb-stacked .lb-year {
+      grid-column: auto;
+      width: 100%;
+  }
+
   .lb-nav{width:40px;height:40px;font-size:16px;}
   .lb-prev{left:8px;}
   .lb-next{right:8px;}
+  .section-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
 }
 
 /* ---------- lignes contact ---------- */
