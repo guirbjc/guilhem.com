@@ -404,6 +404,7 @@ body{-webkit-text-size-adjust:100%;}
 [data-theme="dark"] nav{border-top-color:#fff;border-bottom-color:#fff;}
 [data-theme="dark"] .hero{border-bottom-color:#fff;}
 [data-theme="dark"] .hero h1 .thin{outline-color:#fff;}
+[data-theme="dark"] .hero-top h1 em{-webkit-text-stroke-color:#fff;}
 [data-theme="dark"] .hero-meta{border-top-color:#fff;}
 [data-theme="dark"] .hero-meta div{border-right-color:#fff;}
 [data-theme="dark"] .section{border-bottom-color:#fff;}
