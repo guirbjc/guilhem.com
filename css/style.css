@@ -74,6 +74,7 @@ nav a:hover,nav a.active{background:var(--azur);color:#fff;}
   flex:1;display:flex;flex-direction:column;align-items:center;
   justify-content:center;text-align:center;
 }
+.hero-top h1 em{font-style:normal;-webkit-text-stroke:2px #000;color:transparent;}
 .hero-logo{
   width:clamp(140px,22vw,260px);margin-bottom:28px;
   filter:grayscale(1) contrast(1.1)
